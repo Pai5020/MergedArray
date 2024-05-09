@@ -17,11 +17,14 @@ public class Main {
         for (i = 0; i < arr2.length; i++) {
             arr2[i] = sc.nextInt();
         }
+        int msize = arr.length+ arr2.length;
         System.out.println("Merged array : ");
-        List<Integer> list1 = new ArrayList<>(Arrays.asList(arr));
-        List<Integer> list2 = new ArrayList<>(Arrays.asList(arr2));
-        list1.addAll(list2);
-        marray = list1.toArray(new Integer[0]);
+        marray= new Integer[msize];
+
+        System.arraycopy(arr, 0, marray, 0, arr.length);
+
+        System.arraycopy(arr2, 0, marray, arr.length, arr2.length);
+
 
         System.out.println(Arrays.toString(marray));
         Arrays.sort(marray, Collections.reverseOrder());
